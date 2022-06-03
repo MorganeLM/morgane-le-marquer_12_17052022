@@ -1,30 +1,29 @@
 import './WelcomeBanner.css';
-import { useState, useEffect } from "react";
-
+import { useState, useEffect } from 'react';
 
 function WelcomeBanner(props) {
-  const axios = require('axios').default;
-  const [userInfo, getUserInfo] = useState({});
-  //const userInfosEndPoint = 'http://localhost:3000/user/' + props.userId;
+  const [userInfos, loadUserInfos] = useState([])
+  //const userInfosEndPoint = "http://localhost:3000/user/18";
+  //const userInfosMockEndPoint = "http://localhost:3001/user18mock.json"
 
   useEffect(() => {
-   // Make a request for a user with a given ID
-    axios.get('/user18mock.json')
-    .then(function (response) {
-      getUserInfo(response.data.data);
-      console.log(response.data.data)
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
-  }, [axios]);
+    const userInfosEndPoint = "http://localhost:3000/user/" + props.userId;
 
-    return (
-      <section className='welcome-banner'>
-          {/* <h1>Bonjour <span className='welcome-banner-name'>{userInfo.userInfos.firstName}</span></h1> */}
-          <p>Félicitations ! Vous avez explosé vos objectifs hier 👏</p>
-      </section>
-    );
-  }
+    fetch(userInfosEndPoint).then(response => {
+        return response.json();
+        }).then(data => {
+          loadUserInfos(data.data.userInfos);
+        }).catch(err => {
+            console.log(err);
+        });
+    }, [])
+
+  return (
+    <section className='welcome-banner'>
+        <h1>Bonjour <span className='welcome-banner-name'>{userInfos.firstName}</span></h1>
+        <p>Félicitations ! Vous avez explosé vos objectifs hier 👏</p>
+    </section>
+  );
+}
   
   export default WelcomeBanner;
