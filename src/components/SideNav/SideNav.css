@@ -1,0 +1,18 @@
+.side-nav{
+    position: relative;
+    background-color: #020203;
+    height: calc(100vh - 63px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+}
+
+.side-nav-copyright{
+    position: absolute;
+    bottom: 80px;
+    transform: rotate(-90deg);
+    color: white;
+    width: 150px;
+    font-size: 10px;
+}

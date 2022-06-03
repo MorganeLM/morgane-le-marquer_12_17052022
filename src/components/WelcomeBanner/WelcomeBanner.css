@@ -1,0 +1,16 @@
+.welcome-banner{
+    margin-bottom: 50px;
+}
+
+.welcome-banner h1{
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.welcome-banner-name{
+    color: #fe0101;
+}
+
+.welcome-banner p{
+    font-size: 17px;
+}
