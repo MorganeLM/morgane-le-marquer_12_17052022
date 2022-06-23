@@ -1,0 +1,20 @@
+.indicators{
+    flex: 1;
+    min-width: 75px;
+    max-width: 350px;
+    height: 100%;
+}
+
+
+/* indicator component */
+.indicator{
+    margin: 20px;
+    padding: 15px 30px;
+    border-radius: 5px;
+    background-color: rgb(233, 233, 233);
+}
+
+.indicator-type{
+    color: gray;
+    text-transform: capitalize;
+}

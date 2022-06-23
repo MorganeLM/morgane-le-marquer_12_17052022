@@ -6,10 +6,10 @@ function Header() {
     return (
       <header className="header">
           <Link to="/"><img src={logo} alt='SportSee' /></Link>
-          <a href='#'>Accueil</a>
-          <a href='#'>Profil</a>
-          <a href='#'>Réglage</a>
-          <a href='#'>Communauté</a>
+          <Link to="/">Accueil</Link>
+          <Link to="/">Profil</Link>
+          <Link to="/">Réglage</Link>
+          <Link to="/">Communauté</Link>
       </header>
     );
   }

@@ -16,7 +16,7 @@ function WelcomeBanner(props) {
         }).catch(err => {
             console.log(err);
         });
-    }, [])
+    }, [props.userId])
 
   return (
     <section className='welcome-banner'>

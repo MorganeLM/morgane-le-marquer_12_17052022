@@ -14,8 +14,7 @@ function Stats(props) {
               <ActivityType userId={props.userId} />
               <Score userId={props.userId} />
           </div>
-          <div>
-              
+          <div className="stats-indicators">
             <DieteticIndicator userId={props.userId} />
           </div>
       </section>

@@ -4,18 +4,10 @@ import Stats from '../components/Stats/Stats';
 import WelcomeBanner from '../components/WelcomeBanner/WelcomeBanner';
 import '../styles/ProfilePage.css';
 import { useParams } from 'react-router-dom';
-//import { useEffect } from 'react';
 
 function ProfilePage() {
   const params = useParams()
-  // const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if(params.userId !== 12 || 18){
-  //     navigate("*", {replace: true});
-  //   }
-  // }, [params.userId])
-  
   return (
     <div>
       <Header />
