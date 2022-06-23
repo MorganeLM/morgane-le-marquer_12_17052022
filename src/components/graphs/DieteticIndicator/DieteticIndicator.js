@@ -32,15 +32,17 @@ function DieteticIndicator(props) {
   return (
     <article className="indicators">
       {indicators && indicators.length && (
-        indicators.map(indicator => <Indicator type={indicator.type} value={indicator.value} unit={indicator.unit} />)
+        indicators.map(indicator => <Indicator key={indicator.id} type={indicator.type} value={indicator.value} unit={indicator.unit} />)
       )}
     </article>
   );
 
   function mapIndicators(data){
     let transformedData = [];
+    let id = 0;
     for (let [key, value] of Object.entries(data)) {
       transformedData.push({
+        id: id++,
         type: key.replace('Count', 's'),
         value: value,
         unit: findUnit(key)
