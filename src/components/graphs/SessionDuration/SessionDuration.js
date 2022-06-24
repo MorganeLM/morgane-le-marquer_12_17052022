@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import UserDataService from "../../../services/UserDataService";
 import {
   LineChart,
   Line,
@@ -11,27 +12,13 @@ import {
 
 function SessionDuration(props) {
   const [sessionDuration, setSessionDuration] = useState([]);
-  //const dieteticIndicatorEndPoint = "http://localhost:3000/user/:id/key-data";
-  //const dieteticIndicatorMockEndPoint = "http://localhost:3001/user18indicatorsMock.json"
 
   useEffect(() => {
-    // let sessionDuration = await UserDataService.getSessionDuration(props.userId)
-    // setSessionDuration(sessionDuration);
-
-    const sessionDurationEndPoint = "http://localhost:3000/user/" + props.userId + "/average-sessions"; 
-
-    fetch(sessionDurationEndPoint)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        let rawSessionDuration = data.data.sessions;
-        let sessionDuration = mapDaysOfSessions(rawSessionDuration);
-        setSessionDuration(sessionDuration);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    async function callService(){
+      let sessionDuration = await UserDataService.getSessionDuration(props.userId)
+      setSessionDuration(sessionDuration);
+    }
+    callService();
   }, [props.userId]);
 
   return (
@@ -51,25 +38,3 @@ function SessionDuration(props) {
 }
   
 export default SessionDuration;
-
-function mapDaysOfSessions(data){
-  return data.map(session => {
-    return {
-      day: transformDay(session.day),
-      sessionLength: session.sessionLength
-    }
-  })
-}
-
-function transformDay(day){
-  switch(day){
-    case 1: return 'L';
-    case 2: return 'M';
-    case 3: return 'M';
-    case 4: return 'J';
-    case 5: return 'V';
-    case 6: return 'S';
-    case 7: return 'D';
-    default: return ''
-  }
-}

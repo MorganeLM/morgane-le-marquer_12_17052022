@@ -6,7 +6,7 @@ import '../styles/ProfilePage.css';
 import { useParams } from 'react-router-dom';
 
 function ProfilePage() {
-  const params = useParams()
+  const params = useParams();
 
   return (
     <div>

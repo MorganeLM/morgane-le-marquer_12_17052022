@@ -1,22 +1,17 @@
 import './WelcomeBanner.css';
 import { useState, useEffect } from 'react';
+import UserDataService from '../../services/UserDataService'
 
 function WelcomeBanner(props) {
-  const [userInfos, loadUserInfos] = useState([])
-  //const userInfosEndPoint = "http://localhost:3000/user/18";
-  //const userInfosMockEndPoint = "http://localhost:3001/user18mock.json"
+  const [userInfos, setUserInfos] = useState([])
 
   useEffect(() => {
-    const userInfosEndPoint = "http://localhost:3000/user/" + props.userId;
-
-    fetch(userInfosEndPoint).then(response => {
-        return response.json();
-        }).then(data => {
-          loadUserInfos(data.data.userInfos);
-        }).catch(err => {
-            console.log(err);
-        });
-    }, [props.userId])
+    async function callService(){
+      let userInfos = await UserDataService.getUserInfos(props.userId)
+      setUserInfos(userInfos.userInfos);
+    }
+    callService();
+  }, [props.userId])
 
   return (
     <section className='welcome-banner'>
