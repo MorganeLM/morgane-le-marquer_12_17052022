@@ -35,7 +35,7 @@ function SessionDuration(props) {
   }, [props.userId]);
 
   return (
-    <article className="indicators">
+    <article className="sessionDuration">
       {sessionDuration && sessionDuration.length && (
         <LineChart width={300} height={220} data={sessionDuration} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" />
