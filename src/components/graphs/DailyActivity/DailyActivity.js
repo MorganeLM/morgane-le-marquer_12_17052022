@@ -21,7 +21,7 @@ function DailyActivity(props) {
       setDailyActivity(activityData);
     }
     callService();
-  });
+  }, [props.userId]);
 
   return (
     <article className="dailyActivity">

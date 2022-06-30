@@ -1,7 +1,7 @@
 .side-nav{
     position: relative;
     background-color: #020203;
-    /* height: calc(100vh - 63px); */
+    min-height: calc(100vh - 63px); 
     display: flex;
     align-items: center;
     justify-content: center;
