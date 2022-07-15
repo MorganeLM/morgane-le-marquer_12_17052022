@@ -7,14 +7,36 @@
 
 
 /* indicator component */
+.indicator-wrapper{
+    padding: 20px;
+}
+
 .indicator{
-    margin: 20px;
-    padding: 15px 30px;
+    padding: 30px;
     border-radius: 5px;
-    background-color: rgb(233, 233, 233);
+    background-color: #fbfbfb;
+    display: flex;
+    align-items: center;
+}
+
+.indicator-img{
+    width: 60px;
+}
+
+.indicator-img img{
+    width: 100%;
+}
+
+.indicator-text{
+    font-family: 'Roboto', sans-serif;    
+    padding-left: 25px;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .indicator-type{
-    color: gray;
+    color: #74798C;
+    font-size: 14px;
     text-transform: capitalize;
+    font-weight: 500;
 }

@@ -1,3 +1,8 @@
+import calorie from '../assets/dietetics-icons/calories-icon.png';
+import carbohydrate from '../assets/dietetics-icons/carbs-icon.png';
+import lipid from '../assets/dietetics-icons/fat-icon.png';
+import protein from '../assets/dietetics-icons/protein-icon.png';
+
 class UserDataService {
 
     static async getUserInfos(userId){
@@ -102,7 +107,8 @@ function transformKeyData(data){
       id: id++,
       type: key.replace('Count', 's'),
       value: value,
-      unit: findUnitOfKeyData(key)
+      unit: findUnitOfKeyData(key),
+      icon: findIconOfKeyData(key)
     })
   }
   return transformedData;
@@ -119,7 +125,15 @@ function findUnitOfKeyData(type){
 }
 
 //todo: function findIconOfKeyData(type)
-
+function findIconOfKeyData(type){
+  switch(type){
+    case 'calorieCount': return calorie;
+    case 'carbohydrateCount': return carbohydrate;
+    case 'lipidCount': return lipid;
+    case 'proteinCount': return protein;
+    default: return '';
+  }
+}
 
 //transform session duration data
 function mapDaysOfSessions(data){

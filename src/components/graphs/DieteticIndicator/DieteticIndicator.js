@@ -17,7 +17,7 @@ function DieteticIndicator(props) {
   return (
     <article className="indicators">
       {indicators && indicators.length && (
-        indicators.map(indicator => <Indicator key={indicator.id} type={indicator.type} value={indicator.value} unit={indicator.unit} />)
+        indicators.map(indicator => <Indicator key={indicator.id} type={indicator.type} value={indicator.value} unit={indicator.unit} icon={indicator.icon} />)
       )}
     </article>
   );
