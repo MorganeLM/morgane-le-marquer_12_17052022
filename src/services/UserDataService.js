@@ -28,8 +28,8 @@ class UserDataService {
           const transformedData = rawData.map((dailyActivity) => {
               return {
                   day: dayCount++,
-                  kilogram: dailyActivity.kilogram,
-                  calories: dailyActivity.calories,
+                  "Poids (kg)": dailyActivity.kilogram,
+                  "Calories brulées (kCal)": dailyActivity.calories,
               };
           });
   
@@ -147,13 +147,25 @@ function transformDay(day){
 
 //transform activity type data
 function transformActivityTypeData(data, kinds){
+  const frenchKinds = {
+    "cardio": "cardio",
+    "energy": "énergie",
+    "endurance": "endurance",
+    "strength": "force",
+    "speed": "vitesse",
+    "intensity": "intensité"
+  }
+
   let activityType = data.map(type => {
     let kind = kinds[type.kind];
-    let capitalizedKind = kind[0].toUpperCase() + kind.substring(1);
+    let frenchKind = frenchKinds[kind]
+    let capitalizedKind = frenchKind[0].toUpperCase() + frenchKind.substring(1);
     return {
       kind: capitalizedKind,
       value: type.value
     }
   })
+  let firstItem = activityType.pop();
+  activityType.unshift(firstItem);
   return activityType;
 }

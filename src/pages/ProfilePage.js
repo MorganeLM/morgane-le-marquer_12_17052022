@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 
 function ProfilePage() {
   const params = useParams();
-
+  
   return (
     <div>
       <Header />

@@ -1,0 +1,12 @@
+.activityType{
+    background-color: #282d30;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.recharts-polar-angle-axis-tick {
+    fill: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;    
+}

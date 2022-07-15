@@ -5,9 +5,7 @@ import {
   Line,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
-  Legend,
 } from "recharts";
 
 function SessionDuration(props) {
@@ -23,15 +21,21 @@ function SessionDuration(props) {
 
   return (
     <article className="sessionDuration">
+      <h3>Durée moyenne des sessions</h3>
       {sessionDuration && sessionDuration.length && (
-        <LineChart width={300} height={220} data={sessionDuration} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="day" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="sessionLength" stroke="#8884d8" />
-      </LineChart>
+        <LineChart width={300} height={280} data={sessionDuration} fill="red" margin={{ top: 15, right: 30, left: 20, bottom: 15 }}>
+          <XAxis dataKey="day" tickLine={false} axisLine={false} />
+          <YAxis  type="number" domain={[-20, 'dataMax']} hide={true} />
+          <Tooltip />
+          <Line type="natural"
+                dataKey="sessionLength"
+                stroke="#8884d8"
+                strokeWidth={2}
+                dot={false}
+                activeDot={{
+                  stroke: "#fff",
+                }} />
+        </LineChart>
       )}
     </article>
   );

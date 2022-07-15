@@ -25,9 +25,12 @@ function DailyActivity(props) {
 
   return (
     <article className="dailyActivity">
+      <h3>Titre</h3>
       {dailyActivity && dailyActivity.length && (
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
+              barSize={7}
+              barGap={8}
               width={500}
               height={300}
               data={dailyActivity}
@@ -38,13 +41,14 @@ function DailyActivity(props) {
                 bottom: 5,
               }}
             >
-              <CartesianGrid strokeDasharray="3 3" />
+              <CartesianGrid strokeDasharray="1 1" vertical={false} />
               <XAxis dataKey="day" />
-              <YAxis />
+              <YAxis dataKey="Poids (kg)" yAxisId="1" orientation="right" axisLine={false} tickLine={false} />
+              <YAxis dataKey="Calories brulées (kCal)" yAxisId="0" orientation="left" />
               <Tooltip />
-              <Legend />
-              <Bar dataKey="kilogram" fill="#282D30" />
-              <Bar dataKey="calories" fill="#E60000" />
+              <Legend  verticalAlign="top" align="end"/>
+              <Bar dataKey="Poids (kg)" fill="#282D30" legendType="circle" radius={[10, 10, 0, 0]} />
+              <Bar dataKey="Calories brulées (kCal)" fill="#E60000" legendType="circle" radius={[10, 10, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
       )}

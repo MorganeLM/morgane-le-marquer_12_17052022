@@ -1,46 +1,76 @@
 import { useState, useEffect } from "react";
 import UserDataService from "../../../services/UserDataService";
 import {
-  RadialBarChart,
-  RadialBar,
-  Legend,
-  Tooltip,
+  PieChart,
+  Pie,
+  Cell,
+  Legend
 } from "recharts";
+import "./Score.css"
 
 
 function Score(props) {
-  const [score, setScore] = useState([]);
+  const [scoreForGraph, setScoreForGraph] = useState([]);
+  const [score, setScore] = useState(0);
 
   useEffect(() => {
     async function callService(){
       let userInfos = await UserDataService.getUserInfos(props.userId);
-      let rawScoreData = userInfos.todayScore;
-      let score = [{
-        name: 'Score',
-        score: rawScoreData*100
-      }];
-      setScore(score);
-      
+      let rawScoreData = userInfos.todayScore ?  userInfos.todayScore :  userInfos.score ? userInfos.score : 0;
+      let score = rawScoreData*100;
+      let scoreData = [
+        {
+          name: 'score',
+          data: score,
+          fill: "#FF0000",
+        },
+        {
+          name: 'reference',
+          data: 100 - score,
+          fill: "#fbfbfb",
+        }
+      ];
+      console.log(scoreData)
+      setScoreForGraph(scoreData);
+      setScore(score)
     }
     callService();
   }, [props.userId]);
 
+  const renderLegend = () => {
+    return (
+      <div className="score-legend">
+        <div className="score-legend-title">{score} %</div>
+        <div>de votre</div>
+        <div>objectif</div>
+      </div>
+    );
+  };
+
   return (
-    <article>
-        {score && (
-          <RadialBarChart 
-          width={300} 
-          height={220} 
-          innerRadius="0%" 
-          outerRadius="100%" 
-          data={score} 
-          startAngle={360} 
-          endAngle={0}
-        >
-          <RadialBar minAngle={50} label={{ fill: '#666', position: 'insideStart' }} background clockWise={true} dataKey='score' />
-          <Legend iconSize={10} width={120} height={140} layout='vertical' verticalAlign='middle' align="right" />
-          <Tooltip />
-        </RadialBarChart>
+    <article className="score">
+      <h3 className="score-title">Score</h3>
+        {scoreForGraph && (
+           <PieChart width={200} height={200}>
+              <Pie  cx="50%" cy="50%"
+                    startAngle={90} endAngle={450}
+                    innerRadius={'90%'} outerRadius={'100%'}
+                    cornerRadius={'50%'}
+                    dataKey="data"
+                    data={scoreForGraph}>
+                  <Cell fill="#E60000" stroke="#E60000"/>
+                  <Cell fill="transparent" stroke="transparent"/>
+              </Pie>
+              <Pie  cx="50%" cy="50%"
+                    outerRadius={'90%'}
+                    fill="#FFFFFF"
+                    data={[{name: 'ring', value: 100}]}
+                    dataKey="value" />
+              <Legend verticalAlign="middle"
+                      align="center"
+                      content={renderLegend}
+              />
+      </PieChart>
       )}
     </article>
   );
