@@ -1,0 +1,32 @@
+.sessionDuration{
+    background-color: #fe0101;
+    border-radius: 10px;
+    margin: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sessionDuration-title{
+    position: absolute;
+    top: 30px;
+    left: 35px;
+    width: 200px;
+    font-weight: 600;
+    color: white;
+    opacity: 0.7;
+}
+
+.sessionDuration-tooltip{
+    width: 45px;
+    height: 25px;
+    color: black;
+    background-color: white;
+    font-family: 'Roboto', 'sans-serif';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+}
