@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import UserDataService from "../../../services/UserDataService";
-import {LineChart, Line, XAxis, YAxis, Tooltip} from "recharts";
+import {ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip} from "recharts";
 import './SessionDuration.css';
 
 function SessionDuration(props) {
@@ -14,32 +14,37 @@ function SessionDuration(props) {
     callService();
   }, [props.userId]);
 
-  const sessionStyleTooltip = {
-    width: "39px",
-    hide: "25px",
-    color: 'black',
-    backgroundColor: 'white',
-    fontSize: '7px'
-  };
-
   return (
     <article className="sessionDuration">
       <h3 className="sessionDuration-title">Durée moyenne des sessions</h3>
       {sessionDuration && sessionDuration.length && (
-        <LineChart width={300} height={280} data={sessionDuration} fill="red" margin={{ top: 15, right: 30, left: 20, bottom: 15 }}>
-          <XAxis dataKey="day" tickLine={false} axisLine={false} tick={{fill: '#FFFFFF'}} tickMargin={10} padding={{left: 5, right: 5}} />
-          <YAxis  type="number" domain={[-13, 80]} hide={true} />
-          <Tooltip contentStyle={sessionStyleTooltip} content={<CustomTooltip />}/>
-          <Line type="natural"
-                dataKey="sessionLength"
-                stroke="#ffffff"
-                strokeWidth={2}
-                dot={false}
-                activeDot={{
-                  stroke: "#fff",
-                }} />
-        </LineChart>
-      )}
+        <ResponsiveContainer width="100%" height="100%" className="sessionDuration-graph">
+          <LineChart width={300} height={280} fill="red" margin={{ top: 30, right: 30, left: 30, bottom: 30 }}
+                     data={sessionDuration} 
+                     onMouseMove={(e) => {
+                      if (e.isTooltipActive) {
+                        const divHovered = document.querySelector(".sessionDuration-graph");
+                        const windowWidth = divHovered.clientWidth;
+                        const withRateHovered = Math.round(
+                          (e.activeCoordinate.x / windowWidth) * 100
+                        );
+                        divHovered.style.background = `linear-gradient(90deg, rgba(255,0,0,1) ${withRateHovered}%, rgba(175,0,0,1.5) ${withRateHovered}%, rgba(175,0,0,1.5) 100%)`;
+                      }
+                    }}>
+            <XAxis dataKey="day" tickLine={false} axisLine={false} tick={{fill: '#FFFFFF', opacity: "0.7"}} tickMargin={10} padding={{left: 5, right: 5}} />
+            <YAxis  type="number" domain={[-10, 90]} hide={true} />
+            <Tooltip cursor={false}content={<CustomTooltip />}/>
+            <Line type="natural" // monotoneX is less smooth but do not go under 0
+                  dataKey="sessionLength"
+                  stroke="#ffffff"
+                  strokeWidth={2}
+                  dot={false}
+                  activeDot={{
+                    stroke: "#fff",
+                  }} />
+          </LineChart>
+        </ResponsiveContainer>
+        )}
     </article>
   );
 }

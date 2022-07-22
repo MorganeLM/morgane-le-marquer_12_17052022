@@ -8,6 +8,10 @@
     align-items: center;
 }
 
+.sessionDuration-graph{
+    border-radius: 10px;
+}
+
 .sessionDuration-title{
     position: absolute;
     top: 30px;
@@ -19,8 +23,7 @@
 }
 
 .sessionDuration-tooltip{
-    width: 45px;
-    height: 25px;
+    padding: 5px 10px;
     color: black;
     background-color: white;
     font-family: 'Roboto', 'sans-serif';
@@ -30,3 +33,12 @@
     line-height: 24px;
     text-align: center;
 }
+
+.recharts-cartesian-axis-line {
+    stroke: none;
+}
+
+.recharts-cartesian-axis-tick-line {
+    display: none;
+}
+
