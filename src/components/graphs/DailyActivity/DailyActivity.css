@@ -14,5 +14,23 @@
     position: absolute;
     top: 30px;
     left: 35px;
-    font-weight: 600;
+    font-weight: 500;
+    color: #20253A;
+}
+
+.recharts-default-legend{
+    background-color: transparent;
+    position: relative;
+    bottom: 30px;
+}
+
+.recharts-default-legend > li{
+    margin-left: 30px;
+}
+
+.recharts-legend-item-text{
+    margin-left: 5px;
+    color: #74798C;
+    font-weight: 500;
+    font-size: 15px;
 }

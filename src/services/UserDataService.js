@@ -33,9 +33,9 @@ class UserDataService {
           const transformedData = rawData.map((dailyActivity) => {
               return {
                   day: dayCount++,
-                  "Poids (kg)": dailyActivity.kilogram,
-                  "Calories brulées (kCal)": dailyActivity.calories,
-              };
+                  kilogram: dailyActivity.kilogram,
+                  calories: dailyActivity.calories,
+              }
           });
   
           return transformedData;

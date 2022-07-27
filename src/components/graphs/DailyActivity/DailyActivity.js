@@ -29,27 +29,32 @@ function DailyActivity(props) {
       <h3 className="dailyActivity-title">Activité quotidienne</h3>
       {dailyActivity && dailyActivity.length && (
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart
-              barSize={7}
-              barGap={8}
-              width={500}
-              height={400}
-              data={dailyActivity}
-              margin={{
-                top: 20,
-                right: 30,
-                left: 20,
-                bottom: 10,
-              }}
-            >
+            <BarChart barSize={7} barGap={8} 
+                      width={500} height={360} margin={{top: 50, right: 30, left: 20, bottom: 10}}
+                      data={dailyActivity} >
+              
               <CartesianGrid strokeDasharray="1 1" vertical={false} />
-              <XAxis dataKey="day" />
-              <YAxis dataKey="Poids (kg)" yAxisId="1" orientation="right" axisLine={false} tickLine={false} />
-              <YAxis dataKey="Calories brulées (kCal)" yAxisId="0" orientation="left" />
+              
+              <XAxis dataKey="day"/>
+              <YAxis dataKey="kilogram"
+                     yAxisId="kgAxis" 
+                     orientation="right" 
+                     axisLine={false} 
+                     tickLine={false} 
+                     tickCount={4}
+                     domain={["dataMin-1", "dataMax+2"]} />
+                     
+              <YAxis dataKey="calories"
+                     yAxisId="calAxis" 
+                     orientation="left" 
+                     hide />
+              
               <Tooltip content={<CustomTooltip/>}/>
-              <Legend  verticalAlign="top" align="end"/>
-              <Bar dataKey="Poids (kg)" fill="#282D30" legendType="circle" radius={[10, 10, 0, 0]} />
-              <Bar dataKey="Calories brulées (kCal)" fill="#E60000" legendType="circle" radius={[10, 10, 0, 0]} />
+              <Legend  verticalAlign="top" align="end" 
+                       formatter={(value) => <span className="recharts-legend-item-text">{value}</span>} />
+
+              <Bar yAxisId="kgAxis" dataKey="kilogram" name="Poids (kg)" fill="#282D30" legendType="circle" radius={[10, 10, 0, 0]} />
+              <Bar yAxisId="calAxis" dataKey="calories" name="Calories brûlées (kCal)" fill="#E60000" legendType="circle" radius={[10, 10, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
       )}
