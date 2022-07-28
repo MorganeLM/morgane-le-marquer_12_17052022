@@ -14,9 +14,9 @@
 
 .sessionDuration-title{
     position: absolute;
-    top: 30px;
-    left: 35px;
-    width: 200px;
+    top: 10%;
+    left: 10%;
+    width: 80%;
     font-weight: 600;
     color: white;
     opacity: 0.7;

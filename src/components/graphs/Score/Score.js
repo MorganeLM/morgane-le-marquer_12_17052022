@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import UserDataService from "../../../services/UserDataService";
 import {
+  ResponsiveContainer,
   PieChart,
   Pie,
   Cell,
@@ -51,7 +52,8 @@ function Score(props) {
     <article className="score">
       <h3 className="score-title">Score</h3>
         {scoreForGraph && (
-           <PieChart width={200} height={200}>
+          <ResponsiveContainer width="100%" height="100%">
+           <PieChart>
               <Pie  cx="50%" cy="50%"
                     startAngle={90} endAngle={450}
                     innerRadius={'90%'} outerRadius={'100%'}
@@ -70,7 +72,8 @@ function Score(props) {
                       align="center"
                       content={renderLegend}
               />
-      </PieChart>
+        </PieChart>
+      </ResponsiveContainer>
       )}
     </article>
   );

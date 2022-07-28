@@ -15,7 +15,7 @@
 }
 
 .indicator{
-    padding: 30px;
+    padding: 25px;
     border-radius: 5px;
     background-color: #fbfbfb;
     display: flex;
@@ -23,7 +23,7 @@
 }
 
 .indicator-img{
-    width: 60px;
+    width: 50px;
 }
 
 .indicator-img img{
@@ -32,14 +32,14 @@
 
 .indicator-text{
     font-family: 'Roboto', sans-serif;    
-    padding-left: 25px;
-    font-size: 20px;
+    padding-left: 20px;
+    font-size: 18px;
     font-weight: 700;
 }
 
 .indicator-type{
     color: #74798C;
-    font-size: 14px;
+    font-size: 13px;
     text-transform: capitalize;
     font-weight: 500;
 }

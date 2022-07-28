@@ -30,7 +30,7 @@ function DailyActivity(props) {
       {dailyActivity && dailyActivity.length && (
           <ResponsiveContainer width="100%" height="100%">
             <BarChart barSize={7} barGap={8} 
-                      width={500} height={360} margin={{top: 50, right: 30, left: 20, bottom: 10}}
+                      margin={{top: 50, right: 30, left: 20, bottom: 10}}
                       data={dailyActivity} >
               
               <CartesianGrid strokeDasharray="1 1" vertical={false} />

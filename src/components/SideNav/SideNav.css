@@ -1,11 +1,12 @@
 .side-nav{
     position: relative;
     background-color: #020203;
-    min-height: calc(100vh - 63px); 
+    min-height: calc(100vh - 77px); 
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 90px;
+    width: 10%;
+    max-width: 115px;
 }
 
 .side-nav-copyright{

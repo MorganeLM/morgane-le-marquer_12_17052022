@@ -3,10 +3,9 @@
 }
 
 .stats-grid{
-    flex: 3;
+    width: calc(77% - 10px);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr 1fr;
 }
 
 .stats-grid > :first-child{
@@ -14,5 +13,6 @@
 }
 
 .stats-indicators{
-    flex: 1;
+    width: calc(23% - 10px);
 }
+

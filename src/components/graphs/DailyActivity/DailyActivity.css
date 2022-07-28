@@ -1,5 +1,7 @@
 .dailyActivity{
-    height: 300px;
+    height: 28vh;
+    min-height: 220px;
+    max-height: 400px;
     background-color: #fbfbfb;
     border-radius: 10px;
     padding: 15px;
@@ -32,5 +34,5 @@
     margin-left: 5px;
     color: #74798C;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 12px;
 }

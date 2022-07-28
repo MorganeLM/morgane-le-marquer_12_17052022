@@ -19,7 +19,7 @@ function SessionDuration(props) {
       <h3 className="sessionDuration-title">Durée moyenne des sessions</h3>
       {sessionDuration && sessionDuration.length && (
         <ResponsiveContainer width="100%" height="100%" className="sessionDuration-graph">
-          <LineChart width={300} height={280} fill="red" margin={{ top: 30, right: 30, left: 30, bottom: 30 }}
+          <LineChart fill="red" margin={{ top: 20, right: 20, left: 20, bottom: 20 }}
                      data={sessionDuration} 
                      onMouseMove={(e) => {
                       if (e.isTooltipActive) {
