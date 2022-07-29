@@ -1,6 +1,7 @@
-import './WelcomeBanner.css';
 import { useState, useEffect } from 'react';
-import UserDataService from '../../services/UserDataService'
+import PropTypes from 'prop-types';
+import UserDataService from '../../services/UserDataService';
+import './WelcomeBanner.css';
 
 function WelcomeBanner(props) {
   const [userInfos, setUserInfos] = useState([])
@@ -22,3 +23,8 @@ function WelcomeBanner(props) {
 }
   
   export default WelcomeBanner;
+
+
+WelcomeBanner.propTypes = {
+  userId: PropTypes.string.isRequired,
+}

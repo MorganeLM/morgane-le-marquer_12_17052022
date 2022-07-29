@@ -1,16 +1,7 @@
 import { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
 import UserDataService from "../../../services/UserDataService";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  ResponsiveContainer,
-  Tooltip,
-  Legend,
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Tooltip, Legend } from "recharts";
 import './DailyActivity.css';
 
 function DailyActivity(props) {
@@ -53,8 +44,11 @@ function DailyActivity(props) {
               <Legend  verticalAlign="top" align="end" 
                        formatter={(value) => <span className="recharts-legend-item-text">{value}</span>} />
 
-              <Bar yAxisId="kgAxis" dataKey="kilogram" name="Poids (kg)" fill="#282D30" legendType="circle" radius={[10, 10, 0, 0]} />
-              <Bar yAxisId="calAxis" dataKey="calories" name="Calories brûlées (kCal)" fill="#E60000" legendType="circle" radius={[10, 10, 0, 0]} />
+              <Bar yAxisId="kgAxis" dataKey="kilogram" name="Poids (kg)" 
+                   fill="#282D30" legendType="circle" radius={[10, 10, 0, 0]} />
+              <Bar yAxisId="calAxis" dataKey="calories" name="Calories brûlées (kCal)" 
+                   fill="#E60000" legendType="circle" radius={[10, 10, 0, 0]} />
+
             </BarChart>
           </ResponsiveContainer>
       )}
@@ -62,12 +56,11 @@ function DailyActivity(props) {
   );
 }
 
-
 export default DailyActivity;
 
 
 /**
- * Show custom tooltip
+ * Create custom tooltip for daily activity chart
  * @param {Object} params
  * @param {Boolean} params.active
  * @param {Array} params.payload
@@ -80,7 +73,8 @@ export default DailyActivity;
   </div>
 ) : null
 
-// propTypes
+
+// PropTypes
 DailyActivity.propTypes = {
   userId: PropTypes.string.isRequired,
 }

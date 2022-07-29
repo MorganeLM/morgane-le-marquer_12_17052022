@@ -1,5 +1,6 @@
-function Indicator(props) {
+import PropTypes from 'prop-types';
 
+function Indicator(props) {
   return (
     <div className="indicator-wrapper">
       <div className="indicator">
@@ -16,3 +17,12 @@ function Indicator(props) {
 }
 
 export default Indicator;
+
+// PropTypes
+Indicator.propTypes = {
+  icon: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
+  unit: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+
+}

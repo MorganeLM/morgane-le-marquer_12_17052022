@@ -1,14 +1,8 @@
 import { useState, useEffect } from "react";
+import PropTypes from 'prop-types';
 import UserDataService from "../../../services/UserDataService";
-import {
-  ResponsiveContainer,
-  PieChart,
-  Pie,
-  Cell,
-  Legend
-} from "recharts";
+import {ResponsiveContainer, PieChart, Pie, Cell, Legend} from "recharts";
 import "./Score.css"
-
 
 function Score(props) {
   const [scoreForGraph, setScoreForGraph] = useState([]);
@@ -31,13 +25,16 @@ function Score(props) {
           fill: "#fbfbfb",
         }
       ];
-      console.log(scoreData)
       setScoreForGraph(scoreData);
-      setScore(score)
+      setScore(score);
     }
     callService();
   }, [props.userId]);
 
+  /**
+   * Create a JSX element for the custom legend of score pie
+   * @returns {JSX}
+   */
   const renderLegend = () => {
     return (
       <div className="score-legend">
@@ -80,4 +77,9 @@ function Score(props) {
 }
 
 export default Score;
+
+// PropTypes
+Score.propTypes = {
+  userId: PropTypes.string.isRequired,
+}
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
+import PropTypes from 'prop-types';
 import UserDataService from "../../../services/UserDataService";
-import {ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip} from "recharts";
+import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip } from "recharts";
 import './SessionDuration.css';
 
 function SessionDuration(props) {
@@ -53,7 +54,7 @@ export default SessionDuration;
 
 
 /**
- * Show custom tooltip
+ * Create custom tooltip for session duration chart
  * @param {Object} params
  * @param {Boolean} params.active
  * @param {Array} params.payload
@@ -64,3 +65,14 @@ export default SessionDuration;
       <div>{payload[0].value} min</div>
   </div>
 ) : null
+
+
+// PropTypes
+SessionDuration.propTypes = {
+  userId: PropTypes.string.isRequired,
+}
+
+CustomTooltip.propTypes = {
+  active: PropTypes.bool,
+  payload: PropTypes.array,
+}

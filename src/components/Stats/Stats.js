@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import ActivityType from "../graphs/ActivityType/ActivityType";
 import DailyActivity from "../graphs/DailyActivity/DailyActivity";
 import DieteticIndicator from "../graphs/DieteticIndicator/DieteticIndicator";
@@ -22,3 +23,7 @@ function Stats(props) {
   }
   
   export default Stats;
+
+  Stats.propTypes = {
+    userId: PropTypes.string.isRequired,
+  }
