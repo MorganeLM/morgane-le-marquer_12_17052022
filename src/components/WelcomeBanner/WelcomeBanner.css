@@ -3,8 +3,9 @@
 }
 
 .welcome-banner h1{
-    font-size: 3.2em;
+    font-size: 3.1em;
     margin-bottom: 1%;
+    font-weight: 500;
 }
 
 .welcome-banner-name{
@@ -12,5 +13,5 @@
 }
 
 .welcome-banner p{
-    font-size: 17px;
+    font-size: 16px;
 }

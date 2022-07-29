@@ -49,7 +49,7 @@ function DailyActivity(props) {
                      orientation="left" 
                      hide />
               
-              <Tooltip content={<CustomTooltip/>}/>
+              <Tooltip content={<CustomTooltip/>} />
               <Legend  verticalAlign="top" align="end" 
                        formatter={(value) => <span className="recharts-legend-item-text">{value}</span>} />
 

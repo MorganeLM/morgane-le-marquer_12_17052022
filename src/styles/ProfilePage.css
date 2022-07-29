@@ -12,6 +12,10 @@ h3{
   font-size: 1.1em;
 }
 
+.activityType, .score, .sessionDuration{
+  min-height: 190px;
+}
+
 
 @media screen and (min-width: 1200px) {
   h3{
@@ -25,5 +29,9 @@ h3{
 
   .recharts-legend-item-text{
     font-size: 14px;
-}
+  }
+
+  .recharts-polar-angle-axis-tick {
+    font-size: 13px;  
+  }
 }

@@ -42,8 +42,8 @@ function Score(props) {
     return (
       <div className="score-legend">
         <div className="score-legend-title">{score} %</div>
-        <div>de votre</div>
-        <div>objectif</div>
+        <div className="score-subtitle">de votre</div>
+        <div className="score-subtitle">objectif</div>
       </div>
     );
   };

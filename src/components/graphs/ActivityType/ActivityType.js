@@ -23,7 +23,7 @@ function ActivityType(props) {
       <article className="activityType">
         {activityType && activityType.length && (
         <ResponsiveContainer width="100%" height="100%">
-          <RadarChart cx="50%" cy="50%" outerRadius={80} data={activityType}>
+          <RadarChart cx="50%" cy="50%" outerRadius={80} data={activityType} margin={{ top: 20, right: 20, left: 20, bottom: 20 }}>
             <PolarGrid radialLines={false} />
             <PolarAngleAxis dataKey="kind" />
             <Radar name="Activity Type" dataKey="value" fill="#FF0101B2" fillOpacity={0.8} />
