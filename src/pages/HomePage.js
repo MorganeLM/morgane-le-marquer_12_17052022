@@ -8,7 +8,7 @@ function HomePage() {
   return (
     <div>
       <Header />
-      <main className='profil-wrapper'>
+      <main className='profil-wrapper homepage'>
         <SideNav />
         <div className='profil-content'>
             <h2><i>Mode : {process.env.REACT_APP_ENV}</i></h2><br/>

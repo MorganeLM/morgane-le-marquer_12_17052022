@@ -8,10 +8,10 @@
     justify-content: space-between;
 }
 
-
 /* indicator component */
 .indicator-wrapper{
     padding: 10px;
+    flex: 1;
 }
 
 .indicator{
@@ -42,4 +42,25 @@
     font-size: 13px;
     text-transform: capitalize;
     font-weight: 500;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .indicators{
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .indicator{
+        padding: 15px;
+    }
+
+    .indicator-text{
+        padding-left: 15px;
+        font-size: 16px;
+    }
+    
+    .indicator-type{
+        font-size: 12px;
+    }
 }

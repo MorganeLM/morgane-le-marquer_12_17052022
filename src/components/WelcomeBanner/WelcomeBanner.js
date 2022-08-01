@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import UserDataService from '../../services/UserDataService';
-import './WelcomeBanner.css';
 
 function WelcomeBanner(props) {
   const [userInfos, setUserInfos] = useState([])

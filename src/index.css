@@ -19,3 +19,7 @@ h1, h2, h3, h4, p{
 .red-text{
   color: #fe0101;
 }
+
+.homepage .profil-content{
+  font-size: 16px;
+}

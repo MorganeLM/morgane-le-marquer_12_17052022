@@ -16,3 +16,20 @@
     width: calc(23% - 10px);
 }
 
+@media screen and (max-width: 1200px) {
+    .stats{
+        flex-direction: column-reverse;
+    }
+
+    .stats-indicators > .indicators{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .stats-grid, .stats-indicators{
+        width: 93%;
+    }
+}
+
+

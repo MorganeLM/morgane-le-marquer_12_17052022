@@ -4,7 +4,7 @@
 
 .profil-content{
   width: calc(100% - 115px);
-  padding: 2% 1% 1% 4%;
+  padding: 3% 1% 1% 4%;
   font-size: 12px;
 }
 
@@ -35,3 +35,4 @@ h3{
     font-size: 13px;  
   }
 }
+
